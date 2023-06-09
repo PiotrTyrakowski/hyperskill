@@ -8,7 +8,7 @@ class CustomLinearRegression:
 
     def fit(self, X, y):
         if self.fit_intercept:
-            X = np.c_[np.ones(X.shape[0]), X]  # insert a column of ones at the beginning
+            X = np.c_[np.ones(X.shape[0]), X] 
             cof = np.linalg.inv(X.T @ X) @ X.T @ y
             self.coefficient = cof[1:]
             self.intercept = cof[0]
@@ -18,7 +18,7 @@ class CustomLinearRegression:
 
     def predict(self, X):
         if self.fit_intercept:
-            X = np.c_[np.ones(X.shape[0]), X]  # insert a column of ones at the beginning
+            X = np.c_[np.ones(X.shape[0]), X] 
             return X @ np.insert(self.coefficient, 0, self.intercept)
         return X * self.coefficient
 
